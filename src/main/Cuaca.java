@@ -40,10 +40,7 @@ public class Cuaca {
     }
 
     public double normalize(double x) {
-//        return (((x - 0) / ((this.maxX) - 0))*0.8+0.1);
         return ((x / 100) * 0.8 + 0.1);
-//        return (((x - 0) / ((this.maxX) - 0)));
-//        return ((x - (0)) / (this.maxX) - 0);
     }
 
     public double findMax(double... vals) {
