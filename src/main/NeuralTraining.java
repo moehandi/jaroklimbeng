@@ -40,21 +40,21 @@ public class NeuralTraining extends MainFrame {
 
         int neuronHiddenLayer = Integer.parseInt(sHiddenLayer);
 
-        String message = "Menjalankan Training..";
+        String message = "Training...";
         printTrain(message);
-        System.out.println("Menjalankan Training: " + trainingSetFileName);
+        System.out.println(" Training: " + trainingSetFileName);
 
         DataSet dataSet = null;
         try {
             dataSet = TrainingSetImport.importFromFile(trainingSetFileName, INPUT_NEURON, OUTPUT_NEURON, ",");
         } catch (FileNotFoundException ex) {
-            System.out.println("File " + trainingSetFileName + "tidak ditemukan!");
+            System.out.println("File " + trainingSetFileName + "not found!");
         } catch (IOException | NumberFormatException ex) {
-            System.out.println("Kesalahan membaca file atau format list yang tidak benar!");
+            System.out.println("Error Reading file or file List error!");
         }
 
 //         Buat multilayer perceptron
-        System.out.println("Membuat Neural network");
+        System.out.println("Create Neural network");
         MultiLayerPerceptron neuralNet = new MultiLayerPerceptron(TransferFunctionType.SIGMOID, INPUT_NEURON, neuronHiddenLayer, OUTPUT_NEURON);
 
 //         set learning parameter
@@ -75,14 +75,14 @@ public class NeuralTraining extends MainFrame {
     }
 
     public void test(String trainingSetFileName, String jstFileName) {
-        System.out.println("Menjalankan Training: " + trainingSetFileName);
+        System.out.println("Testing: " + trainingSetFileName);
         conf.loadProperties();
 
         DataSet trainingSet = null;
         try {
             trainingSet = TrainingSetImport.importFromFile(trainingSetFileName, INPUT_NEURON, OUTPUT_NEURON, ",");
         } catch (FileNotFoundException ex) {
-            System.out.println("File tidak ditemukan!");
+            System.out.println("File not found!");
         } catch (IOException | NumberFormatException ex) {
             System.out.println("Kesalahan membaca file atau format list yang tidak benar!");
         }
@@ -108,9 +108,9 @@ public class NeuralTraining extends MainFrame {
         try {
             trainingSet = TrainingSetImport.importFromFile(testSetFileName, INPUT_NEURON, OUTPUT_NEURON, ",");
         } catch (FileNotFoundException ex) {
-            System.out.println("File tidak ditemukan!");
+            System.out.println("File not found!");
         } catch (IOException | NumberFormatException ex) {
-            System.out.println("Kesalahan membaca file atau format list yang tidak benar!");
+            System.out.println("Error reading file or format list not correct!");
         }
 
         NeuralNetwork neuralNetwork = NeuralNetwork.createFromFile(jstName);
