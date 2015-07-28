@@ -66,8 +66,8 @@ public class NeuralTraining extends MainFrame {
         learningRule.setMaxIterations(Integer.valueOf(maxIteration));
         learningRule.setMaxError(Double.valueOf(maxError));
 
-//        TrainingNetwork(neuralNet, trainingSet);        
-        System.out.println("Training neural network...");
+//        TrainingNetwork(neuralNet, trainingSet);
+	System.out.println("Default Network Training");  
         neuralNet.learn(dataSet);
         System.out.println("Training neural network Selesai");
 
